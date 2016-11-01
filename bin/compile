@@ -12,7 +12,9 @@ BUILD_DIR=${1:-}
 CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
+
 DOTNET_DIR=https://dotnetcli.blob.core.windows.net/dotnet/preview/Binaries/1.0.0-preview2-003131/dotnet-dev-ubuntu-x64.1.0.0-preview2-003131.tar.gz
+NODE_VERSION:="6.9.1"
 
 mkdir -p $BUILD_DIR/.profile.d
 cp $BP_DIR/profile/* $BUILD_DIR/.profile.d/
@@ -23,6 +25,7 @@ source $BP_DIR/lib/utils
 echo "Installing the dependencies"
 apt_install libunwind8 gettext
 
+install_node $BUILD_DIR
 install_dotnet $BUILD_DIR $DOTNET_DIR
 
 export PATH="/app/dotnet:${PATH}"
