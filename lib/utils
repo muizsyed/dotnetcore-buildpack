@@ -4,6 +4,8 @@ function install_dotnet() {
   local BUILD_DIR="$1"
   local DOTNET_DIR="$2"
 
+  echo "Installing dotnet from ${DOTNET_DIR}"
+
   curl -sSL -o dotnet.tar.gz ${DOTNET_DIR}
   mkdir -p ${BUILD_DIR}/dotnet && tar zxf dotnet.tar.gz -C ${BUILD_DIR}/dotnet
   ln -s ${BUILD_DIR}/dotnet /app
