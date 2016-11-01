@@ -25,7 +25,7 @@ source $BP_DIR/lib/utils
 echo "Installing the dependencies"
 apt_install libunwind8 gettext
 
-install_node $BUILD_DIR
+install_node $BUILD_DIR $NODE_VERSION
 install_dotnet $BUILD_DIR $DOTNET_DIR
 
 export PATH="/app/dotnet:${PATH}"
