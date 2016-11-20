@@ -19,6 +19,7 @@ BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 # now using - latest
 
 DOTNET_VERSION="latest"
+NODE_VERSION="6.9.1"
 
 mkdir -p $BUILD_DIR/.profile.d
 cp $BP_DIR/profile/* $BUILD_DIR/.profile.d/
