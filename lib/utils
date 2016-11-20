@@ -26,7 +26,7 @@ function install_dotnet() {
 
   echo "Installing dotnet ${DOTNET_VERSION}"
 
- if [[ ${DOTNET_VERSION} == "latest"]]
+ if [[ "${DOTNET_VERSION}" == "latest" ]]
  then
   DOTNET_PATH="https://dotnetcli.blob.core.windows.net/dotnet/preview/Binaries/Latest/dotnet-ubuntu.16.04-x64.latest.tar.gz"
  else
