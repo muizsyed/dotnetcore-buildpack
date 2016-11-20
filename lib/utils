@@ -24,7 +24,7 @@ function install_dotnet() {
   local DOTNET_VERSION="$2"
   local DOTNET_PATH=""
 
-  echo "Installing dotnet ${DOTNET_VERSION}"
+  topic "Installing dotnet ${DOTNET_VERSION}:"
 
  if [[ "${DOTNET_VERSION}" == "latest" ]]
  then
@@ -32,6 +32,7 @@ function install_dotnet() {
  else
   DOTNET_PATH="https://dotnetcli.blob.core.windows.net/dotnet/preview/Binaries/${DOTNET_VERSION}/dotnet-ubuntu.16.04-x64.${DOTNET_VERSION}.tar.gz"
  fi
+  topic "From ${DOTNET_PATH}"
 
   curl -sSL -o dotnet.tar.gz ${DOTNET_PATH}
   mkdir -p ${BUILD_DIR}/dotnet && tar zxf dotnet.tar.gz -C ${BUILD_DIR}/dotnet
@@ -52,7 +53,7 @@ function indent() {
 }
 
 function apt_install(){
-  echo "Install package"
+  echo "Install packages..."
 
   local apt_cache_dir="$CACHE_DIR/apt/cache"
   local apt_state_dir="$CACHE_DIR/apt/state"
