@@ -43,7 +43,12 @@ dotnet restore
 
 echo "publish"
 PROJECT_FILE=$(find ${BUILD_DIR} -maxdepth 5 -iname project.json | tail -2 | head -1)
+echo $PROJECT_FILE
+
 PROJECT_NAME=$(basename $(dirname $PROJECT_FILE))
+
+echo $PROJECT_NAME
+
 dotnet publish $PROJECT_FILE --output ${BUILD_DIR}/heroku_output --configuration Release
 
 cat << EOT >> ${BUILD_DIR}/Procfile
